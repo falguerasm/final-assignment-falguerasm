@@ -24,7 +24,7 @@ h1{
 
     font-weight: 600;
     font-size: 112px;
-    line-height: 112px;
+    line-height: 1em;
 }
 
 h2 {
@@ -34,7 +34,7 @@ h2 {
 
     font-weight: 400;
     font-size: 48px;
-    line-height: 48px;
+    line-height: 1em;
 }
 
 h3 {
@@ -44,7 +44,7 @@ h3 {
 
     font-weight: 400;
     font-size: 36px;
-    line-height: 36px;
+    line-height: 1em;
 }
 
 p {
@@ -52,7 +52,7 @@ p {
 
     font-weight: 400;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.5em;
 }
 .bold {
     text-transform: uppercase;
@@ -70,7 +70,7 @@ a {
     color: #111;
     font-weight: 400;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.5em;
     text-decoration: none;
 }
 a:hover {
@@ -79,7 +79,7 @@ a:hover {
     color: #111;
     font-weight: 400;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.5em;
     text-decoration: underline;
 }
 a:active {
@@ -88,7 +88,7 @@ a:active {
     color: #111;
     font-weight: 400;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.5em;
     text-decoration: underline;
 }
 
@@ -100,7 +100,7 @@ a:active {
     color: #eee;
     font-weight: 400;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.5em;
     text-decoration: none;
 }
 .a-light:hover {
@@ -110,7 +110,7 @@ a:active {
     color: #eee;
     font-weight: 400;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.5em;
     text-decoration: underline;
 }
 .a-light:active {
@@ -120,7 +120,7 @@ a:active {
     color: #eee;
     font-weight: 400;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.5em;
     text-decoration: underline;
 }
 
@@ -178,7 +178,7 @@ a:active {
 }
 
 /*MENU*/
-header {
+.header-desktop {
     width: 100%;
     height: auto;
     margin: 0;
@@ -199,6 +199,9 @@ header {
 
     background-color: #eee;
     border-bottom: 0px solid #111;
+}
+.header-phone {
+    display: none;
 }
 .header-img {
     max-width: 55px;
@@ -430,7 +433,7 @@ header {
 
     font-family: "articulat-cf", sans-serif;
     font-weight: 100;
-    font-size: 24px;
+    font-size: 16px;
     line-height: 8px;
 }
 
@@ -1057,63 +1060,229 @@ iframe {
 /*PHONE*/
 @media (max-width: 750px){
 
-    body {
-        margin: 0;
-        height: 100vh;
-      
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-
-        background-color: #111;
-        color: #000;
-        font-family: "articulat-cf", sans-serif;
-    }
     h1 {
-        color: #eee;
-        padding: 16px;
         font-size: 36px;
-        line-height: 36px;
+        line-height: 1em;
+        padding: 1em 0px;
     }
     h2 {
         font-size: 24px;
-        line-height: 24px;
+        line-height: 1em;
     }
-    strong {
-        font-weight: 600;
-        text-decoration: underline;    
+    h3 {
+        font-size: 24px;
+        line-height: 1em;
     }
+
     .landing_page-wrapper {
-        display: none;
+        height: 100vh;
+        margin-top: 0px;
+        justify-content: flex-end;
     }
-    header {
-        display: none;
+    .landing_page-content {
+        width: 100%;
     }
-    .coming_soon-wrapper {
-        height: 50vh;
-        display: block;
+
+    .header-desktop {
+        display: none;   
     }
-    .selected_work-wrapper {
-        display: none;
-    }
-    .about-wrapper {
-        display: none;
-    }
-    .contact-wrapper {
+    .header-phone {
+        width: 100%;
         height: auto;
+        margin: 0;
+        padding: 16px;
+    
+        z-index: 2;
+
+        position: absolute;
+    
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        column-gap: 0px;
+
+        justify-items: start;
+        align-items: baseline;
+
+        background-color: #eee;
+        border-bottom: 0px solid #111;
+    }
+    .header-menu-1 {
+        width: 100%;
+        grid-column: 2 / 3;
+
+        text-align: right;
+    }
+    .header-menu-2 {
+        width: 100%;
+        grid-column: 3 / 4;
+
+        text-align: right;
+    }
+    .header-menu-3 {
+        width: 100%;
+        grid-column: 4 / 5;
+
+        text-align: right;
+    }
+
+    .section-block-light {
+        position: relative;
     }
     .section-block-dark {
-        display: none;
+        position: relative;
     }
-    .contact-section {
-        justify-content: flex-end;
-        padding-bottom: 0px;
+    .section-block-darker {
+        position: relative;
     }
-    .about-intro {
+    
+    .accordion {
+        height: auto;
+        padding: 16px;
+    }
+    
+    .rayban:hover {
+        background-image: none; /* The image used */
+        background-color: #cccccc; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #111;
+        background-color: #eee;
+    }
+    .etro:hover {
+        background-image: none; /* The image used */
+        background-color: #cccccc; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #111;
+        background-color: #eee;
+    }
+    .adi:hover {
+        background-image: none; /* The image used */
+        background-color: #cccccc; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #111;
+        background-color: #eee;
+    }
+    .sgsv:hover {
+        background-image: none; /* The image used */
+        background-color: #cccccc; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #111;
+        background-color: #eee;
+    }
+    .eapv:hover {
+        background-image: none; /* The image used */
+        background-color: #cccccc; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #111;
+        background-color: #eee;
+    }
+    .helif:hover {
+        background-image: none; /* The image used */
+        background-color: #cccccc; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #111;
+        background-color: #eee;
+    }
+    .ecpn:hover {
+        background-image: none; /* The image used */
+        background-color: #cccccc; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #111;
+        background-color: #eee;
+    }
+    .asmr:hover {
+        background-image: none; /* The image used */
+        background-color: #cccccc; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #111;
+        background-color: #eee;
+    }
+    
+    .active {
+        height: auto;
+    }
+    
+    .accordion-block {
         width: 100%;
-        padding: 0px;
+        height: auto;
+    
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        column-gap: 0px;
+    
+        justify-items: start;
+        align-items: baseline;
+    
     }
-    footer {
+    .accordion-block :nth-child(1) {
+        grid-column: 1 / 9;
+    }
+    .accordion-block :nth-child(2) {
         display: none;
     }
+    .accordion-block :nth-child(3) {
+        display: none;
+    }
+    .accordion-block :nth-child(4) {
+        display: none;
+    }
+    
+    .accordion:after {
+        content: "\002B";
+    
+        float: right;
+        position: relative;
+        top: -20px;
+    
+        font-family: "articulat-cf", sans-serif;
+        font-weight: 100;
+        font-size: 24px;
+        line-height: 8px;
+    }
+    .active:after {
+        content: "\2212";
+    
+        float: right;
+        position: relative;
+        top: -20px;
+    
+        font-family: "articulat-cf", sans-serif;
+        font-weight: 100;
+        font-size: 24px;
+        line-height: 8px;
+    }
+    
+    .panel-grid {
+        display: flex;
+        flex-direction: column;
+    }
+    .panel-link {
+        text-decoration: underline;
+        align-self: flex-end;
+    }
+    .panel-thumbnail-1 {
+        width: 100%;
+        height: auto;
+    }
+    .panel-thumbnail-2 {
+        width: 100%;
+        height: auto;
+    }
+    .panel-thumbnail-3 {
+        display: none;
+    }
+    .panel-thumbnail-4 {
+        display: none;
+    }
+
+    
 }
