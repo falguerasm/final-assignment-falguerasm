@@ -588,12 +588,6 @@ a:active {
     display: flex;
     flex-direction: row;
 }
-.carrusel-img {
-    width: 20%;
-    height: auto;
-
-    border: 1px solid #eee;
-}
 .about-section-cv {
     width: 100%;
     height: auto;
@@ -1066,12 +1060,50 @@ iframe {
         padding: 1em 0px;
     }
     h2 {
-        font-size: 24px;
+        font-size: 28px;
         line-height: 1em;
     }
     h3 {
         font-size: 24px;
         line-height: 1em;
+    }
+    p {
+        margin: 0;
+    
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 1.5em;
+    }
+    .bold {
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 400;
+    }
+    .s {
+        font-size: 12px;
+    }
+
+    a {
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    a:hover {
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    a:active {
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .a-light {
+        text-transform: none;
+    }
+    .a-light:hover {
+        text-transform: none;
+    }
+    .a-light:active {
+        text-transform: none;
     }
 
     .landing_page-wrapper {
@@ -1097,7 +1129,7 @@ iframe {
         position: absolute;
     
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr;
         grid-template-rows: 1fr;
         column-gap: 0px;
 
@@ -1127,13 +1159,13 @@ iframe {
     }
 
     .section-block-light {
-        position: relative;
+        position: inherit;
     }
     .section-block-dark {
-        position: relative;
+        position: inherit;
     }
     .section-block-darker {
-        position: relative;
+        position: inherit;
     }
     
     .accordion {
@@ -1284,5 +1316,48 @@ iframe {
         display: none;
     }
 
+    .about-intro {
+        width: 100%;
+    }
+
+    .about-s1-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .about-s1-title {
+        display: none;
+    }
+    .about-s1-file {
+        padding-bottom: 16px;
+    }
+    .about-s1-content-about {
+        padding-bottom: 32px;
+
+    }
+    .about-s1-content-work {
+        padding-bottom: 32px;
+    }
+    .about-s1-img {
+        padding-bottom: 32px;
+    }
+
+    .about-section-cv {
+        margin-bottom: 32px;
+    }
+    
+    .about-content-cv {
+        padding-top: 16px;
+    
+        flex-wrap: wrap;
+    
+        border-bottom: 1px solid #ddd;
+        border-top: 0px solid #ddd;
+    }
+    .about-content-cv-info {
+        width: 100%;
+    }
+    .about-content-cv-year {
+        width: 100%;
+    }
     
 }
