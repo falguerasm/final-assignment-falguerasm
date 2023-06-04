@@ -1051,23 +1051,23 @@ iframe {
 @media (max-width: 750px){
 
     h1 {
-        font-size: 36px;
+        font-size: 56px;
         line-height: 1em;
         padding: 1em 0px;
     }
     h2 {
-        font-size: 28px;
+        font-size: 32px;
         line-height: 1em;
     }
     h3 {
-        font-size: 24px;
+        font-size: 28px;
         line-height: 1em;
     }
     p {
         margin: 0;
     
         font-weight: 400;
-        font-size: 13px;
+        font-size: 16px;
         line-height: 1.5em;
     }
     .bold {
@@ -1080,28 +1080,28 @@ iframe {
     }
 
     a {
-        font-size: 12px;
+        font-size: 16px;
         text-transform: uppercase;
     }
     a:hover {
-        font-size: 12px;
+        font-size: 16px;
         text-transform: uppercase;
     }
     a:active {
-        font-size: 12px;
+        font-size: 16px;
         text-transform: uppercase;
     }
 
     .a-light {
-        font-size: 12px;
+        font-size: 16px;
         text-transform: none;
     }
     .a-light:hover {
-        font-size: 12px;
+        font-size: 16px;
         text-transform: none;
     }
     .a-light:active {
-        font-size: 12px;
+        font-size: 16px;
         text-transform: none;
     }
 
@@ -1109,7 +1109,9 @@ iframe {
         height: 100vh;
         margin-top: 0px;
         padding: var(--padding);
-        justify-content: flex-end;
+        padding-top: 10%;
+
+        justify-content: flex-start;
     }
     .landing_page-content {
         width: 100%;
@@ -1131,33 +1133,41 @@ iframe {
     
         display: grid;
         grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr;
-        grid-template-rows: 1fr;
+        grid-template-rows: 0.5fr 0.5fr 0.5fr;
         column-gap: 0px;
 
         justify-items: start;
-        align-items: baseline;
+        align-items: start;
 
         background-color: #eee;
         border-bottom: 0px solid #111;
     }
     .header-img {
         padding: 0;
+        
+    }
+    .header-logo {
+        grid-column: 1 / 2;
+        grid-row: 1 / 4;
     }
     .header-menu-1 {
         width: 100%;
-        grid-column: 2 / 3;
+        grid-column: 4 / 5;
+        grid-row: 1 / 2;
 
         text-align: right;
     }
     .header-menu-2 {
         width: 100%;
-        grid-column: 3 / 4;
+        grid-column: 4 / 5;
+        grid-row: 2 / 3;
 
         text-align: right;
     }
     .header-menu-3 {
         width: 100%;
         grid-column: 4 / 5;
+        grid-row: 3 / 4;
 
         text-align: right;
     }
@@ -1177,7 +1187,10 @@ iframe {
     
     .accordion {
         height: auto;
-        padding: var(--padding);    }
+        padding: var(--padding);
+        padding-bottom: 5%;
+        color: #111;    
+    }
     
     .rayban:hover {
         background-image: none; /* The image used */
