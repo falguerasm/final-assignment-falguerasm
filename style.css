@@ -1,7 +1,10 @@
+:root {
+    --padding: 8px;
+}
+
 * { box-sizing: border-box; }
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 79px;
 }
 body {
   margin: 0;
@@ -889,14 +892,9 @@ iframe {
 .more-title {
     grid-column: 1 / 4;
 }
-.more-thumbnail {
-    width: 100%;
-    height: auto;
-
-    grid-column: 6 / 7;
-}
 .more-info {
     grid-column: 8 / 9;
+    text-align: end;
 }
 
 .more-rayban:hover {
@@ -1003,9 +1001,7 @@ iframe {
     color: #eee;
     background-color: #111;
 }
-.coming_soon-wrapper {
-    display: none;
-}
+
 /*SMALL SCREEN*/
 @media (max-width: 1100px) {
 
@@ -1097,22 +1093,27 @@ iframe {
     }
 
     .a-light {
+        font-size: 12px;
         text-transform: none;
     }
     .a-light:hover {
+        font-size: 12px;
         text-transform: none;
     }
     .a-light:active {
+        font-size: 12px;
         text-transform: none;
     }
 
     .landing_page-wrapper {
         height: 100vh;
         margin-top: 0px;
+        padding: var(--padding);
         justify-content: flex-end;
     }
     .landing_page-content {
         width: 100%;
+        padding: 0;
     }
 
     .header-desktop {
@@ -1122,7 +1123,7 @@ iframe {
         width: 100%;
         height: auto;
         margin: 0;
-        padding: 16px;
+        padding: var(--padding);
     
         z-index: 2;
 
@@ -1138,6 +1139,9 @@ iframe {
 
         background-color: #eee;
         border-bottom: 0px solid #111;
+    }
+    .header-img {
+        padding: 0;
     }
     .header-menu-1 {
         width: 100%;
@@ -1160,18 +1164,20 @@ iframe {
 
     .section-block-light {
         position: inherit;
+        padding: var(--padding);
     }
     .section-block-dark {
         position: inherit;
+        padding: var(--padding);
     }
     .section-block-darker {
         position: inherit;
+        padding: var(--padding);
     }
     
     .accordion {
         height: auto;
-        padding: 16px;
-    }
+        padding: var(--padding);    }
     
     .rayban:hover {
         background-image: none; /* The image used */
@@ -1293,7 +1299,11 @@ iframe {
         line-height: 8px;
     }
     
+    .panel {
+        padding: 0;
+    }
     .panel-grid {
+        padding: var(--padding);
         display: flex;
         flex-direction: column;
     }
@@ -1304,10 +1314,12 @@ iframe {
     .panel-thumbnail-1 {
         width: 100%;
         height: auto;
+        padding: var(--padding) 0;
     }
     .panel-thumbnail-2 {
         width: 100%;
         height: auto;
+        padding: var(--padding) 0;
     }
     .panel-thumbnail-3 {
         display: none;
@@ -1321,6 +1333,7 @@ iframe {
     }
 
     .about-s1-wrapper {
+        padding: var(--padding);
         display: flex;
         flex-direction: column;
     }
@@ -1341,6 +1354,10 @@ iframe {
         padding-bottom: 32px;
     }
 
+    .about-section-2 {
+        padding: var(--padding);
+    }
+
     .about-section-cv {
         margin-bottom: 32px;
     }
@@ -1358,6 +1375,197 @@ iframe {
     }
     .about-content-cv-year {
         width: 100%;
+    }
+
+    .contact-section {
+        padding: var(--padding);
+    }
+    .about-intro {
+        padding: var(--padding);
+    }
+    .contact-list {
+        padding: var(--padding);
+    }
+
+    .project-head-wrapper {
+        margin-top: 0;
+        padding: var(--padding);
+        padding-top: 100px;
+    
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 50px 1fr 1fr;
+
+        border-bottom: 0px solid #ddd;
+    }
+    .project-work {
+        grid-column: 1 / 3;
+        grid-row: 3;
+    }
+    .project-cate {
+       display: none;
+    }
+    .project-desc {
+        grid-column: 1 / 5;
+        grid-row: 2;
+    }
+    .project-year {
+        grid-column: 3 / 5;
+        grid-row: 3;
+
+        justify-self: start;
+    }
+
+    .project-img-100 {
+        width: 100%;
+        height: auto;
+    }
+    .project-img-50 {
+        width: 100%;
+        height: auto;
+    }
+    .project-img-25 {
+        width: 100%;
+        height: auto;
+    }
+
+    .project-p-50 {
+        width: 100%;
+        height: auto;
+        padding-right: 0px;
+        padding: var(--padding);
+    }
+
+    .project-16-wrapper {
+        width: 100%;
+        padding: 0;
+
+        flex-direction: column;
+    }
+    .project-0-wrapper {
+        width: 100%;
+        padding: 0;
+
+        flex-direction: column;
+    }
+    .project-50-end-wrapper {
+        width: 100%;
+        padding: 0;
+
+        flex-direction: column;
+    }
+    .project-50-center-wrapper {
+        width: 100%;
+        padding: 0;
+
+        flex-direction: column;
+    }
+
+    img{
+        padding: 100px var(--padding) var(--padding);
+    }
+
+    video {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 100px var(--padding) var(--padding);
+    }
+    .video-85 {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 100px var(--padding) var(--padding);
+    }
+    .video-50 {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 100px var(--padding) var(--padding);
+    }
+    .video-25 {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 100px var(--padding) var(--padding);
+    }
+    
+    iframe {
+        width: 100%;
+        margin: 0;
+        padding: var(--padding);
+    }
+
+    .more-title {
+        grid-column: 1 / 6;
+    }
+    .more-info {
+        grid-column: 6 / 9;
+        text-align: end;
+    }
+
+    .more-rayban:hover {
+        background-image: none; /* The image used */
+        background-color: #111; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #eee;
+        background-color: #111;
+    }
+    .more-etro:hover {
+        background-image: none; /* The image used */
+        background-color: #111; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #eee;
+        background-color: #111;
+    }
+    .more-adi:hover {
+        background-image: none; /* The image used */
+        background-color: #111; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #eee;
+        background-color: #111;
+    }
+    .more-sgsv:hover {
+        background-image: none; /* The image used */
+        background-color: #111; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #eee;
+        background-color: #111;
+    }
+    .more-eapv:hover {
+        background-image: none; /* The image used */
+        background-color: #111; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #eee;
+        background-color: #111;
+    }
+    .more-helif:hover {
+        background-image: none; /* The image used */
+        background-color: #111; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #eee;
+        background-color: #111;
+    }
+    .more-ecpn:hover {
+        background-image: none; /* The image used */
+        background-color: #111; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #eee;
+        background-color: #111;
+    }
+    .more-asmr:hover {
+        background-image: none; /* The image used */
+        background-color: #111; /* Used if the image is unavailable */
+        height: auto; /* You must set a specified height */
+        
+        color: #eee;
+        background-color: #111;
     }
     
 }
