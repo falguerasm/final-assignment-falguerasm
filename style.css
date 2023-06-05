@@ -1139,16 +1139,15 @@ iframe {
         justify-items: start;
         align-items: start;
 
-        background-color: #eee;
+        background-color: none;
         border-bottom: 0px solid #111;
     }
     .header-img {
-        padding: 0;
-        
+        padding: 0; 
     }
     .header-logo {
         grid-column: 1 / 2;
-        grid-row: 1 / 4;
+        grid-row: 1 / 8;
     }
     .header-menu-1 {
         width: 100%;
@@ -1473,33 +1472,37 @@ iframe {
         flex-direction: column;
     }
 
+    .first-pdp-img {
+        padding: 56px var(--padding) 32px var(--padding)
+    }
+    
     img{
-        padding: 100px var(--padding) var(--padding);
+        padding: 56px var(--padding) var(--padding);
     }
 
     video {
         width: 100%;
         height: auto;
         margin: 0;
-        padding: 100px var(--padding) var(--padding);
+        padding: 56px var(--padding) var(--padding);
     }
     .video-85 {
         width: 100%;
         height: auto;
         margin: 0;
-        padding: 100px var(--padding) var(--padding);
+        padding: 56px var(--padding) var(--padding);
     }
     .video-50 {
         width: 100%;
         height: auto;
         margin: 0;
-        padding: 100px var(--padding) var(--padding);
+        padding: 56px var(--padding) var(--padding);
     }
     .video-25 {
         width: 100%;
         height: auto;
         margin: 0;
-        padding: 100px var(--padding) var(--padding);
+        padding: 56px var(--padding) var(--padding);
     }
     
     iframe {
