@@ -279,23 +279,6 @@
         
             </div>
 
-            <script>
-                var acc = document.getElementsByClassName("accordion");
-                var i;
-                
-                for (i = 0; i < acc.length; i++) {
-                  acc[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
-                    if (panel.style.display === "block") {
-                      panel.style.display = "none";
-                    } else {
-                      panel.style.display = "block";
-                    }
-                  });
-                }
-            </script>
-
         </section>
 
         <section class="about-wrapper" id="about">
@@ -414,5 +397,22 @@
             <p><span>&copy;</span>2023 Mireia Falgueras. All copyrights are protected</p>
             <a href="#" class="a-light top"><span>&uarr;</span></a>
         </footer>
+
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            
+            for (i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                  panel.style.display = "none";
+                } else {
+                  panel.style.display = "block";
+                }
+              });
+            }
+        </script>
     </body>
 </html>

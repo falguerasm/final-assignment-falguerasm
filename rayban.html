@@ -18,6 +18,13 @@
         <a href="#contact" class="header-menu-3">Contact </a>
     </header>
 
+    <header class="header-desktop">
+        <a href="index.html"> <img src="img/logo-black-mireia_falgueras-500x363.png" alt="logo-mireia_falgueras" width="500px" height="363px" class="header-img"> </a>
+        <a href="#selected_work" class="header-menu-1">Selected work </a>
+        <a href="#about" class="header-menu-2">This is me </a>
+        <a href="#contact" class="header-menu-3">Get in touch </a>
+    </header>
+
     <section class="project-head-wrapper">
         <div class="project-title">
             <h2>Ray-Ban Stories</h2>
@@ -151,24 +158,6 @@
                 toggleActions: "play none reverse none"
             }
         });
-
-        gsap.registerPlugin(ScrollTrigger);
-        let allVideoDivs = gsap.utils.toArray('.vid');
-
-        allVideoDivs.forEach((videoDiv, i) => {
-            let videoElem = videoDiv.querySelector('video')
-            ScrollTrigger.create({
-                trigger: videoElem,
-                start: 'top 90%',
-                end: 'top 0%',
-                markers: false,
-                onEnter: () => videoElem.play(),
-                onEnterBack: () => videoElem.play(),
-                onLeave: () => videoElem.pause(),
-                onLeaveBack: () => videoElem.pause(),
-            });
-        });
     </script>
-
 </body>
 </html>

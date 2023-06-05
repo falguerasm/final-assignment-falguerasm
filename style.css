@@ -3,6 +3,7 @@
 }
 
 * { box-sizing: border-box; }
+
 html {
     scroll-behavior: smooth;
 }
@@ -181,6 +182,10 @@ a:active {
 }
 
 /*MENU*/
+.header-phone {
+    display: none;
+}
+
 .header-desktop {
     width: 100%;
     height: auto;
@@ -203,9 +208,6 @@ a:active {
     background-color: #eee;
     border-bottom: 0px solid #111;
 }
-.header-phone {
-    display: none;
-}
 .header-img {
     max-width: 55px;
     height: auto;
@@ -219,10 +221,12 @@ a:active {
 .header-menu-2 {
     width: 100%;
     grid-column: 7 / 8;
+
 }
 .header-menu-3 {
     width: 100%;
     grid-column: 8 / 9;
+
 }
 
 /*LANDING PAGE*/

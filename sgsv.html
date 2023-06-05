@@ -161,23 +161,6 @@
                 toggleActions: "play none reverse none"
             }
         });
-
-        gsap.registerPlugin(ScrollTrigger);
-        let allVideoDivs = gsap.utils.toArray('.vid');
-
-        allVideoDivs.forEach((videoDiv, i) => {
-            let videoElem = videoDiv.querySelector('video')
-            ScrollTrigger.create({
-                trigger: videoElem,
-                start: 'top 90%',
-                end: 'top 0%',
-                markers: false,
-                onEnter: () => videoElem.play(),
-                onEnterBack: () => videoElem.play(),
-                onLeave: () => videoElem.pause(),
-                onLeaveBack: () => videoElem.pause(),
-            });
-        });
     </script>
 
 </body>
