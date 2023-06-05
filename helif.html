@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helif</title>
-        <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
-        <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
+    <link rel="stylesheet" href="style.css">
+    <script src="js/gsap.js"></script>
+    <script src="js/ScrollTrigger.js"></script>
 </head>
 <body>
     <header class="header-phone">
@@ -44,7 +46,7 @@
         <img src="img/projects/helif/project-helif-mockup-landscape-cooking-1920x1080.jpg" alt="" width="1920" height="1080" class="project-img-100 first-pdp-img">
 
         <section class="project-16-wrapper">
-            <div class="project-p-50">
+            <div class="project-p-50 text-animation">
                 <h3 class="margin-bottom-16">Helif is a website build to act as a host for users to access quality content blogs with ease, all on one platform.</h3>
                 <p class="margin-bottom-16">Helif is a website which plans to act as a host for users to access quality blogs about a variety of topics, specifically the categories lifestyle, crafts and cooking all on one platform. It is giving users a blogging community experience which will allow them to search, follow and save posts from their favourite bloggers and access quality content blogs worldwide. The main concept behind is to be sort of a social media platform for blogging.</p>
                 <p class="margin-bottom-16">It's unique selling point (USP) aims to be a hassle free, modern, and inclusive way to browse your favourite blogs in one spot, reduce website hopping and follow your favourite creators with ease.</p>
@@ -54,13 +56,12 @@
             <img src="img/projects/helif/project-helif-mockup-portrait-home-960x1440.jpg" alt="" width="960" height="1440" class="project-img-25">
         </section>
 
-
-        <section class="helif-video">
+        <section class="helif-video vid">
             
         </section>
 
-        <video width="1920" height="1080" class="project-img-100" autoplay muted loop>
-            <source src="img/projects/helif/project-helif-mockup-web-1920x1080.mp4" type="video/mp4">
+        <video width="1920" height="1080" autoplay muted loop class="project-img-100 vid">
+        <source src="img/projects/helif/project-helif-mockup-web-1920x1080.mp4" type="video/mp4">
         </video>
 
         <img src="img/projects/helif/project-helif-mockup-portrait-profile-1920x1080.jpg" alt="" width="1920" height="1080" class="project-img-100">    
@@ -134,5 +135,40 @@
         <p><span>&copy;</span>2023 Mireia Falgueras. All copyrights are protected</p>
         <a href="#" class="a-light top"><span>&uarr;</span></a>
     </footer>
+
+    <script>
+        gsap.from(".text-animation", { opacity: 0, duration: .8, delay: .3, y: "20px",
+            scrollTrigger: {
+                trigger: ".text-animation",
+                markers: false,
+                scrub: false,
+                start: "0 80%",
+                end: "100% 20%", 
+                // onEnter, onLeave, onEnterBack, onLeaveBack
+                // "play" "pause" "resume" "reset" "restart" "complete" "none"
+                toggleActions: "play none reverse none"
+            }
+        });
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        let allVideoDivs = gsap.utils.toArray('.vid');
+
+        allVideoDivs.forEach((videoDiv, i) => {
+            let videoElem = videoDiv.querySelector('video')
+            ScrollTrigger.create({
+                trigger: videoElem,
+                start: 'top 90%',
+                end: 'top 0%',
+                markers: true,
+                onEnter: () => videoElem.play(),
+                onEnterBack: () => videoElem.play(),
+                onLeave: () => videoElem.pause(),
+                onLeaveBack: () => videoElem.pause(),
+            });
+        });
+    </script>
+
 </body>
 </html>

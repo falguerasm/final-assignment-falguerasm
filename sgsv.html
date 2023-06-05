@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Svalbard Global Seed Vault</title>
-        <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
-        <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
+    <link rel="stylesheet" href="style.css">
+    <script src="js/gsap.js"></script>
+    <script src="js/ScrollTrigger.js"></script>
 </head>
 <body>
     <header class="header-phone">
@@ -46,7 +48,7 @@
         <img src="img/projects/svalbard_gsv/project-svalbard_gsv-mockup-poster-conference_exhibition-billboard-1920×1280.jpg" alt="" width="1920" height="1280" class="project-img-100 first-pdp-img">
 
         <section class="project-0-wrapper">
-            <div class="project-p-50 padding-16">
+            <div class="project-p-50 padding-16 text-animation">
                 <h3 class="margin-bottom-16">Rebranding the Svalbard Global Seed Vault and building a consistent identity for it's worldwide exhibition.</h3>
                 <p class="margin-bottom-16">Spitsbergen is the largest island of the Svalbard archipelago in the northen Norway, known as the Northenmost. Svalbard consists of all islands, islets and skerries, with a landscape full of contrasts which changes appearance during our three main seasons; from the colourful tundra of the Polar Summer, via the spectacular light show of the Northern Lights winter to the frozen fjords and endless snowy landscape of the Sunny Winter.</p>
                 <p class="margin-bottom-16">However, it's most unique caracteristic is the Global Seed Vault. The world’s largest secure seed storage can be found in the permafrost close to Longyearbyen. The seed vault was established so that genebanks worldwide could store duplicate samples of their seeds, and by this ensure that food crop varieties are not lost in local or global crises like war, terrorism or natural catastrophes.</p>
@@ -64,12 +66,12 @@
         </section>
 
         <section class="project-0-wrapper">
-            <video width="1920" height="1080" autoplay muted loop class="video-50">
+            <video width="1920" height="1080" autoplay muted loop class="video-50 vid">
                 <source src="img/projects/svalbard_gsv/project-svalbard_gsv-logo-animation-1920×1080.mp4" type="video/mp4" class="project-img-100">
             </video>
         </section>
 
-        <video width="1440" height="810" autoplay muted loop class="video-85">
+        <video width="1440" height="810" autoplay muted loop class="video-85 vid">
             <source src="img/projects/svalbard_gsv/project-svalbard_gsv-mockup-website-animation-1440x810.mp4" type="video/mp4" class="project-img-100">
         </video>
 
@@ -145,5 +147,40 @@
         <p><span>&copy;</span>2023 Mireia Falgueras. All copyrights are protected</p>
         <a href="#" class="a-light top"><span>&uarr;</span></a>
     </footer>
+
+    <script>
+        gsap.from(".text-animation", { opacity: 0, duration: .8, delay: .3, y: "20px",
+            scrollTrigger: {
+                trigger: ".text-animation",
+                markers: false,
+                scrub: false,
+                start: "0 80%",
+                end: "100% 20%", 
+                // onEnter, onLeave, onEnterBack, onLeaveBack
+                // "play" "pause" "resume" "reset" "restart" "complete" "none"
+                toggleActions: "play none reverse none"
+            }
+        });
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        let allVideoDivs = gsap.utils.toArray('.vid');
+
+        allVideoDivs.forEach((videoDiv, i) => {
+            let videoElem = videoDiv.querySelector('video')
+            ScrollTrigger.create({
+                trigger: videoElem,
+                start: 'top 90%',
+                end: 'top 0%',
+                markers: true,
+                onEnter: () => videoElem.play(),
+                onEnterBack: () => videoElem.play(),
+                onLeave: () => videoElem.pause(),
+                onLeaveBack: () => videoElem.pause(),
+            });
+        });
+    </script>
+
 </body>
 </html>

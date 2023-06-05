@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eix Comercial Poblenou</title>
-        <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
-        <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
+    <link rel="stylesheet" href="style.css">
+    <script src="js/gsap.js"></script>
+    <script src="js/ScrollTrigger.js"></script>
 </head>
 <body>
     <header class="header-phone">
@@ -44,7 +46,7 @@
         <img src="img/projects/ecpn/project-ecpn-mockup-poster-kiosk-1920×1080.jpg" alt="" width="1920" height="1080" class="project-img-100 first-pdp-img">
 
         <section class="project-16-wrapper">
-            <div class="project-p-50">
+            <div class="project-p-50 text-animation">
                 <h3 class="margin-bottom-16">Redesign of the graphic identity of Poblenou Eix Comercial. New identity proposal based on Poblenou heritage and its people. We have created a graphic universe blending tradition and innovation.</h3>
                 <p class="margin-bottom-16">The main objective of this visual identity is to represent the essence of Poblenou commerce, looking for the graphic to pay homage only to the Poblenou neighborhood. That is why we take as a starting point old graphic documents and commercial advertisements of Poblenou and analyze them in the formal field, avoiding falling into nostalgia and vintage graphics.</p>
                 <p class="margin-bottom-16">To continue with the idea of tribute mentioned above, we decided to recover an old claim from a shopkeepers’ guild campaign, prior to the 22@ plan and the wild gentrification that Poblenou has suffered as a result: Embotiga't</p>
@@ -69,7 +71,7 @@
 
         <img src="img/projects/ecpn/project-ecpn-mockup-socials-facebook-1920x840.jpg" alt="" width="1920" height="840" class="project-img-100">
 
-        <video width="1440" height="810" autoplay muted loop class="video-85">
+        <video width="1440" height="810" autoplay muted loop class="video-85 vid">
             <source src="img/projects/ecpn/project-ecpn-posts-animation.mp4" type="video/mp4" class="project-img-100">
         </video>
     </main>
@@ -142,5 +144,40 @@
         <p><span>&copy;</span>2023 Mireia Falgueras. All copyrights are protected</p>
         <a href="#" class="a-light top"><span>&uarr;</span></a>
     </footer>
+
+    <script>
+        gsap.from(".text-animation", { opacity: 0, duration: .8, delay: .3, y: "20px",
+            scrollTrigger: {
+                trigger: ".text-animation",
+                markers: false,
+                scrub: false,
+                start: "0 80%",
+                end: "100% 20%", 
+                // onEnter, onLeave, onEnterBack, onLeaveBack
+                // "play" "pause" "resume" "reset" "restart" "complete" "none"
+                toggleActions: "play none reverse none"
+            }
+        });
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        let allVideoDivs = gsap.utils.toArray('.vid');
+
+        allVideoDivs.forEach((videoDiv, i) => {
+            let videoElem = videoDiv.querySelector('video')
+            ScrollTrigger.create({
+                trigger: videoElem,
+                start: 'top 90%',
+                end: 'top 0%',
+                markers: true,
+                onEnter: () => videoElem.play(),
+                onEnterBack: () => videoElem.play(),
+                onLeave: () => videoElem.pause(),
+                onLeaveBack: () => videoElem.pause(),
+            });
+        });
+    </script>
+
 </body>
 </html>

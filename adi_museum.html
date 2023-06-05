@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adi Compasso d'Oro</title>
-        <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
-        <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
+    <link rel="stylesheet" href="style.css">
+    <script src="js/gsap.js"></script>
+    <script src="js/ScrollTrigger.js"></script>
 </head>
 <body>
     <header class="header-phone">
@@ -46,7 +48,7 @@
         </video>
 
         <section class="project-16-wrapper">
-            <div class="project-p-50">
+            <div class="project-p-50 text-animation">
                 <h3 class="margin-bottom-16">Tribute to Luceplan's award-winning Compasso d'Oro designs, stressing it's methodology and view on design.</h3>
                 <p class="margin-bottom-16">The ADI Design Museum Compasso d’Oro is one of the largest museums in Europe dedicated to design. It possesses the full collection of Compasso d’Oro's award-winning products and projects since the begining, the most prestigious Italian design accolade. Its aim is to highlight the quality of Made in Italy products.</p>
                 <p class="margin-bottom-16">Luceplan is a former award-winning lamp designers, with no more than 6 awards. Their design method based on a refined process of research and innovation in the world of light, balancing functionallity and aesthetics is what makes them so unique.</p>
@@ -142,5 +144,40 @@
         <p><span>&copy;</span>2023 Mireia Falgueras. All copyrights are protected</p>
         <a href="#" class="a-light top"><span>&uarr;</span></a>
     </footer>
+
+    <script>
+        gsap.from(".text-animation", { opacity: 0, duration: .8, delay: .3, y: "20px",
+            scrollTrigger: {
+                trigger: ".text-animation",
+                markers: false,
+                scrub: false,
+                start: "0 80%",
+                end: "100% 20%", 
+                // onEnter, onLeave, onEnterBack, onLeaveBack
+                // "play" "pause" "resume" "reset" "restart" "complete" "none"
+                toggleActions: "play none reverse none"
+            }
+        });
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        let allVideoDivs = gsap.utils.toArray('.vid');
+
+        allVideoDivs.forEach((videoDiv, i) => {
+            let videoElem = videoDiv.querySelector('video')
+            ScrollTrigger.create({
+                trigger: videoElem,
+                start: 'top 90%',
+                end: 'top 0%',
+                markers: true,
+                onEnter: () => videoElem.play(),
+                onEnterBack: () => videoElem.play(),
+                onLeave: () => videoElem.pause(),
+                onLeaveBack: () => videoElem.pause(),
+            });
+        });
+    </script>
+
 </body>
 </html>

@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etro</title>
-        <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
-        <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
+    <link rel="stylesheet" href="style.css">
+    <script src="js/gsap.js"></script>
+    <script src="js/ScrollTrigger.js"></script>
 </head>
 <body>
     <header class="header-phone">
@@ -45,7 +47,7 @@
         <img src="img/projects/etro/project-etro-mockup-computer-dress-backgroung_patter-1920x1080.jpg" alt="" width="1920" height="1080" class="project-img-100 first-pdp-img">
 
         <section class="project-16-wrapper">
-            <div class="project-p-50">
+            <div class="project-p-50 text-animation">
                 <h3 class="margin-bottom-16">Disruptive costumer jourey and product sizing for luxury e-commerce brand Etro, redesign of the product detail page.</h3>
                 <p class="margin-bottom-16">Etro is an Italian fashion brand founded on 1968 as a textile desgin company, in which it's he main stylistic driver for a long time was the paisley pattern. Currently Etro is in a phase of transformation, with Marco de Vincenzo as it's new creative director. In between all this changes, one of the goals is to improve the user experience and interface in their e-commerce.</p>
                 <p class="margin-bottom-16">The design proposed is a disruptive, simplified product detail page (pdp) with a clean design and a thought structure to facilitate the costumer's journey. We propose a clear separation between the e-commerce product, and the prodcut information. In addition, we integrate an easier to understand sizing system to reduce the returns on the products, since we notice is one of the main reasons of returns.</p>
@@ -54,12 +56,12 @@
             <img src="img/projects/etro/project-etro-logo-sew-418×559.jpg" alt="" width="418" height="559" class="project-img-25">
         </section>
 
-        <video width="1920" height="1080" autoplay muted loop>
+        <video width="1920" height="1080" autoplay muted loop class="vid">
             <source src="img/projects/etro/project-etro-mockup-computer-dress-animation-1920x1080.mp4" type="video/mp4" class="project-img-100">
         </video>
 
         <section class="project-0-wrapper">
-            <video width="960" height="540" autoplay muted loop class="video-50"> 
+            <video width="960" height="540" autoplay muted loop class="video-50 vid"> 
                 <source src="img/projects/etro/project-etro-mockup-computer-shoes-animation-960x540.mp4" type="video/mp4" class="project-img-100">
             </video>
             <img src="img/projects/etro/project-etro-mockup-computer-shoes-1920x1080.jpg" alt="" width="1920" height="1080" class="project-img-50">
@@ -67,7 +69,7 @@
 
         <section class="project-0-wrapper">
             <img src="img/projects/etro/project-etro-phone-dress-mockup-background_pattern-1920x1080.jpg" alt="" width="1920" height="1080" class="project-img-50">
-            <video width="960" height="540" autoplay muted loop class="video-50"> 
+            <video width="960" height="540" autoplay muted loop class="video-50 vid"> 
                 <source src="img/projects/etro/project-etro-mockup-computer-bags-animation-960x540.mp4" type="video/mp4" class="project-img-100">
             </video>
         </section>
@@ -142,5 +144,40 @@
         <p><span>&copy;</span>2023 Mireia Falgueras. All copyrights are protected</p>
         <a href="#" class="a-light top"><span>&uarr;</span></a>
     </footer> 
+
+    <script>
+        gsap.from(".text-animation", { opacity: 0, duration: .8, delay: .3, y: "20px",
+            scrollTrigger: {
+                trigger: ".text-animation",
+                markers: false,
+                scrub: false,
+                start: "0 80%",
+                end: "100% 20%", 
+                // onEnter, onLeave, onEnterBack, onLeaveBack
+                // "play" "pause" "resume" "reset" "restart" "complete" "none"
+                toggleActions: "play none reverse none"
+            }
+        });
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        let allVideoDivs = gsap.utils.toArray('.vid');
+
+        allVideoDivs.forEach((videoDiv, i) => {
+            let videoElem = videoDiv.querySelector('video')
+            ScrollTrigger.create({
+                trigger: videoElem,
+                start: 'top 90%',
+                end: 'top 0%',
+                markers: true,
+                onEnter: () => videoElem.play(),
+                onEnterBack: () => videoElem.play(),
+                onLeave: () => videoElem.pause(),
+                onLeaveBack: () => videoElem.pause(),
+            });
+        });
+    </script>
+
 </body>
 </html>

@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rayban Stories</title>
-        <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
-        <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
+    <link rel="stylesheet" href="style.css">
+    <script src="js/gsap.js"></script>
+    <script src="js/ScrollTrigger.js"></script>
 </head>
 <body>
     <header class="header-phone">
@@ -47,7 +49,7 @@
         </video>
 
         <section class="project-16-wrapper">
-            <div class="project-p-50">
+            <div class="project-p-50 text-animation">
                 <h3 class="margin-bottom-16">Ray-Ban Stories phone website version redesign to a simplified and cleaner design, based on user experience research.</h3>
                 <p class="margin-bottom-16">Ray-Ban Stories, is the latest innovation from the company, a collaboration with Facebook META. This smart eyeglasses/sunglasses, come with camera and audio included on it, combining META's technology with Ray-Ban's style. With these glasses one can take photos or listen to music just by tapping on the glasses. These glasses are so unique that there's a lot of characteristics to be told and informec about, that might be a bit overwhelming.</p>
                 <p class="margin-bottom-16">This new design proposal aims to ease the information displayed by just simplifiying the design, but without loosing the art direction of the product. Based on user testing research the new design is less crowded, more minimal, but keeping the look and feel of the product.</p>
@@ -55,13 +57,13 @@
             </div>
         </section>
 
-        <section class="project-50-end-wrapper">
-            <video width="960" height="540" autoplay muted loop class="video-50"> 
+        <section class="project-50-end-wrapper vid">
+            <video width="960" height="540" autoplay muted loop class="video-50 vid"> 
                 <source src="img/projects/rayban/project-rayban-landing-animation-960x540.mp4" type="video/mp4" class="project-img-100">
             </video>
         </section>
 
-        <video width="1440" height="810" autoplay muted loop> 
+        <video width="1440" height="810" autoplay muted loop class="vid"> 
             <source src="img/projects/rayban/project-rayban-web-animation-1440x810.mp4" type="video/mp4" class="project-img-100">
         </video>
         
@@ -135,5 +137,39 @@
         <p><span>&copy;</span>2023 Mireia Falgueras. All copyrights are protected</p>
         <a href="#" class="a-light top"><span>&uarr;</span></a>
     </footer> 
+
+
+    <script>
+        gsap.from(".text-animation", { opacity: 0, duration: .8, delay: .3, y: "20px",
+            scrollTrigger: {
+                trigger: ".text-animation",
+                markers: true,
+                scrub: false,
+                start: "0 80%",
+                end: "100% 20%", 
+                // onEnter, onLeave, onEnterBack, onLeaveBack
+                // "play" "pause" "resume" "reset" "restart" "complete" "none"
+                toggleActions: "play none reverse none"
+            }
+        });
+
+        gsap.registerPlugin(ScrollTrigger);
+        let allVideoDivs = gsap.utils.toArray('.vid');
+
+        allVideoDivs.forEach((videoDiv, i) => {
+            let videoElem = videoDiv.querySelector('video')
+            ScrollTrigger.create({
+                trigger: videoElem,
+                start: 'top 90%',
+                end: 'top 0%',
+                markers: true,
+                onEnter: () => videoElem.play(),
+                onEnterBack: () => videoElem.play(),
+                onLeave: () => videoElem.pause(),
+                onLeaveBack: () => videoElem.pause(),
+            });
+        });
+    </script>
+
 </body>
 </html>

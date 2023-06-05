@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esconderse a plena vista</title>
-        <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
-        <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
+    <link rel="stylesheet" href="style.css">
+    <script src="js/gsap.js"></script>
+    <script src="js/ScrollTrigger.js"></script>
 </head>
 <body>
     <header class="header-phone">
@@ -45,7 +47,7 @@
         <img src="img/projects/eapv/project-eapv-frame-mask-petals-6-1920x1080.jpg" alt="" width="1920" height="1080" class="project-img-100 first-pdp-img">
 
         <section class="project-16-wrapper">
-            <div class="project-p-50">
+            <div class="project-p-50 text-animation">
                 <h3 class="margin-bottom-16">Esconderse a plena vista (en: Hiding in Plain Sight) is the final-degree thesis based on research and experimentation, which seeks to understand facial recognition systems, and develop artistic strategies to avoid being detected.</h3>
                 <p class="margin-bottom-16">Artificial intelligence and facial recognition systems are real and they are here. We live in a society, which Deleuze calls Societies of Control, in which security is valued over privacy, and we find these biometric systems in security agencies, social networks, etc. Facial recognition systems are opaque and do not allow us to understand what is happening inside the machines, while they observe and analyse our faces on a daily basis, beyond our control.</p>
                 <p class="margin-bottom-16">To combat this problem, and the human need for privacy, there are artistic and design strategies created to hide or transfigure the face. This research takes place in this context, designing “masks” that manage to evade detection and presenting them in the form of a video-essay on the subject.</p>
@@ -55,12 +57,12 @@
         </section>
 
         <section class="dark-bg">
-            <iframe min-width="1440" height="810" src="https://www.youtube.com/embed/ZIC4hXd0xjs"></iframe>
+            <iframe min-width="1440" height="810" src="https://www.youtube.com/embed/ZIC4hXd0xjs" class="vid"></iframe>
         </section>
 
         <img src="img/projects/eapv/project-eapv-frame-composition-4w-1920x1280.jpg" alt="" width="1920" height="1080" class="project-img-100">
 
-        <video width="1920" height="1080" autoplay muted loop class="video-85">
+        <video width="1920" height="1080" autoplay muted loop class="video-85 vid">
             <source src="img/projects/eapv/aepv-memoria-video.mp4" type="video/mp4" class="project-img-100">
         </video>
         
@@ -137,5 +139,40 @@
         <p><span>&copy;</span>2023 Mireia Falgueras. All copyrights are protected</p>
         <a href="#" class="a-light top"><span>&uarr;</span></a>
     </footer>
+
+    <script>
+        gsap.from(".text-animation", { opacity: 0, duration: .8, delay: .3, y: "20px",
+            scrollTrigger: {
+                trigger: ".text-animation",
+                markers: false,
+                scrub: false,
+                start: "0 80%",
+                end: "100% 20%", 
+                // onEnter, onLeave, onEnterBack, onLeaveBack
+                // "play" "pause" "resume" "reset" "restart" "complete" "none"
+                toggleActions: "play none reverse none"
+            }
+        });
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        let allVideoDivs = gsap.utils.toArray('.vid');
+
+        allVideoDivs.forEach((videoDiv, i) => {
+            let videoElem = videoDiv.querySelector('video')
+            ScrollTrigger.create({
+                trigger: videoElem,
+                start: 'top 90%',
+                end: 'top 0%',
+                markers: true,
+                onEnter: () => videoElem.play(),
+                onEnterBack: () => videoElem.play(),
+                onLeave: () => videoElem.pause(),
+                onLeaveBack: () => videoElem.pause(),
+            });
+        });
+    </script>
+
 </body>
 </html>

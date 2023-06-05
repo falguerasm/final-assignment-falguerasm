@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASMR</title>
-        <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
-        <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="images/png" href="img/logo-white-mireia_falgueras-500x500.png" />
+    <link rel="stylesheet" href="style.css">
+    <script src="js/gsap.js"></script>
+    <script src="js/ScrollTrigger.js"></script>
 </head>
 <body>
     <header class="header-phone">
@@ -44,14 +46,14 @@
         <img src="img/projects/asmr/project-asmr-book-photo-inside-detail-1920×1080.jpg" alt="" width="1920" height="1080" class="project-img-100 first-pdp-img">
 
         <section class="project-16-wrapper">
-            <div class="project-p-50">
+            <div class="project-p-50 text-animation">
                 <h3 class="margin-bottom-16">ASMR is a conceptual book cover that represents in a visual and simplified way what the concept of asmr is, in addition to simulating the reaction of it in ourselves.</h3>
                 <p class="margin-bottom-16">ASMR n.: 1. Autonomous Sensory Meridian Response (ASMR) is a sensory phenomenon in which people experience a static tingling sensation across the scalp, back of the neck, and sometimes other areas in response to specific visual and sound stimuli.</p>
                 <p class="margin-bottom-16">This interactive cover explores and conceptualizes the idea of ASMR, to visually represent it as a book cover. It represents the physical reaction certain people experience when faced with a stimulus, whether audio or visual. The stimuli (represented by the magnetized sidebar), awaken and activates the hair, (iron threads). The irregular upper container symbolize the epidermis itself.</p>
             </div> 
         </section>
 
-        <iframe min-width="1920" height="1080" src="https://www.youtube.com/embed/fInZmoq7nOM"></iframe>
+        <iframe min-width="1920" height="1080" src="https://www.youtube.com/embed/fInZmoq7nOM" class="vid"></iframe>
 
         <section class="project-0-wrapper">
             <img src="img/projects/asmr/project-asmr-book-photo-960x640.jpg" alt="" width="960" height="640" class="project-img-50">
@@ -134,5 +136,40 @@
         <p><span>&copy;</span>2023 Mireia Falgueras. All copyrights are protected</p>
         <a href="#" class="a-light top"><span>&uarr;</span></a>
     </footer>
+
+    <script>
+        gsap.from(".text-animation", { opacity: 0, duration: .8, delay: .3, y: "20px",
+            scrollTrigger: {
+                trigger: ".text-animation",
+                markers: false,
+                scrub: false,
+                start: "0 80%",
+                end: "100% 20%", 
+                // onEnter, onLeave, onEnterBack, onLeaveBack
+                // "play" "pause" "resume" "reset" "restart" "complete" "none"
+                toggleActions: "play none reverse none"
+            }
+        });
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        let allVideoDivs = gsap.utils.toArray('.vid');
+
+        allVideoDivs.forEach((videoDiv, i) => {
+            let videoElem = videoDiv.querySelector('video')
+            ScrollTrigger.create({
+                trigger: videoElem,
+                start: 'top 90%',
+                end: 'top 0%',
+                markers: true,
+                onEnter: () => videoElem.play(),
+                onEnterBack: () => videoElem.play(),
+                onLeave: () => videoElem.pause(),
+                onLeaveBack: () => videoElem.pause(),
+            });
+        });
+    </script>
+
 </body>
 </html>
