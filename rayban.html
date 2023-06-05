@@ -138,12 +138,11 @@
         <a href="#" class="a-light top"><span>&uarr;</span></a>
     </footer> 
 
-
     <script>
         gsap.from(".text-animation", { opacity: 0, duration: .8, delay: .3, y: "20px",
             scrollTrigger: {
                 trigger: ".text-animation",
-                markers: true,
+                markers: false,
                 scrub: false,
                 start: "0 80%",
                 end: "100% 20%", 
@@ -162,7 +161,7 @@
                 trigger: videoElem,
                 start: 'top 90%',
                 end: 'top 0%',
-                markers: true,
+                markers: false,
                 onEnter: () => videoElem.play(),
                 onEnterBack: () => videoElem.play(),
                 onLeave: () => videoElem.pause(),

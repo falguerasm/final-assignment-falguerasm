@@ -161,9 +161,7 @@
                 toggleActions: "play none reverse none"
             }
         });
-    </script>
 
-    <script>
         gsap.registerPlugin(ScrollTrigger);
         let allVideoDivs = gsap.utils.toArray('.vid');
 
@@ -173,7 +171,7 @@
                 trigger: videoElem,
                 start: 'top 90%',
                 end: 'top 0%',
-                markers: true,
+                markers: false,
                 onEnter: () => videoElem.play(),
                 onEnterBack: () => videoElem.play(),
                 onLeave: () => videoElem.pause(),
