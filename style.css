@@ -6,6 +6,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 79px;
 }
 body {
   margin: 0;
@@ -232,7 +233,7 @@ a:active {
 /*LANDING PAGE*/
 .landing_page-wrapper {
     width: 100%;
-    min-height: 80vh;
+    min-height: 90vh;
     margin: 0;
     padding: 16px;
 
@@ -1017,6 +1018,10 @@ iframe {
         width: 100%;
     }
 
+    .header-phone {
+        display: none;
+    }
+    
     .accordion {
         height: 81px;
     }
