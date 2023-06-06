@@ -480,6 +480,10 @@ a:active {
     text-decoration: underline;
     align-self: flex-end;
 }
+.panel-link:after {
+    content: "\2197";
+}
+
 .panel-thumbnail-1 {
     width: 100%;
     height: auto;
@@ -896,6 +900,9 @@ iframe {
 }
 .more-title {
     grid-column: 1 / 4;
+}
+.more-title:after {
+    content: "\2197";
 }
 .more-info {
     grid-column: 8 / 9;
